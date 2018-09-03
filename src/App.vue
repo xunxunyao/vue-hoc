@@ -1,13 +1,15 @@
 <template>
   <div id="app">
-    <base-component>
+    <h3>基础组件</h3>
+    <BaseComponent :test="100">
       <h2 slot="slot1">BaseComponent slot</h2>
       <p>default slot</p>
-    </base-component>
-    <enhanced-com>
+    </BaseComponent>
+    <h3>增强后的组件</h3>
+    <EnhancedCom>
       <h2 slot="slot1">EnhancedComponent slot</h2>
       <p>default slot</p>
-    </enhanced-com>
+    </EnhancedCom>
   </div>
 </template>
 
@@ -34,4 +36,7 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+  #app h3{
+    text-align: left;
+  }
 </style>

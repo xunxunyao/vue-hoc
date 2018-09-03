@@ -1,9 +1,9 @@
 <template>
   <div>
     <span @click="handleClick">props: {{test}}</span>
-    <slot name="slot1"/> <!-- 具名插槽 -->
+      <slot name="slot1"></slot> <!-- 具名插槽 -->
     <p>===========</p>
-    <slot/> <!-- 默认插槽 -->
+      <slot></slot><!-- 默认插槽 -->
   </div>
 </template>
 

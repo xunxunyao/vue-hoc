@@ -12,11 +12,18 @@ export default function WithConsole (WrappedComponent) {
     props: WrappedComponent.props,
     // template 选项只有在完整版的 Vue 中可以使用，在运行时版本中是不能使用的
     render (h) {
+      // 将 this.$slots 格式化为数组，因为 h 函数第三个参数是子节点，是一个数组
+      const slots = Object.keys(this.$slots)
+        .reduce((arr, key) => arr.concat(this.$slots[key]), [])
+        .map(vnode => {
+          vnode.context = this._self
+          return vnode
+        })
       return h(WrappedComponent, {
         on: this.$listeners,
         attrs: this.$attrs,
         props: this.$props
-      })
+      }, slots)
     }
   }
 }
