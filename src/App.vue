@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     <h3>基础组件</h3>
-    <BaseComponent :test="100">
+    <BaseComponent :count="num1" @customizeClick='add1' >
       <h2 slot="slot1">BaseComponent slot</h2>
       <p>default slot</p>
     </BaseComponent>
     <h3>增强后的组件</h3>
-    <EnhancedCom>
+    <EnhancedCom :count="num2"  @customizeClick='add2' >
       <h2 slot="slot1">EnhancedComponent slot</h2>
       <p>default slot</p>
     </EnhancedCom>
@@ -23,6 +23,20 @@ export default {
   components: {
     BaseComponent,
     EnhancedCom
+  },
+  data () {
+    return {
+      num1: 1,
+      num2: 2
+    }
+  },
+  methods: {
+    add1 () {
+      this.num1 ++
+    },
+    add2 () {
+      this.num2 ++
+    }
   }
 }
 </script>

@@ -7,8 +7,9 @@ export default function WithConsole (WrappedComponent) {
     //   wrapped: WrappedComponent
     // },
     mounted () {
-      console.log('I have already mounted')
+      console.log('I have already mounted --hoc')
     },
+    inheritAttrs: false,
     props: WrappedComponent.props,
     // template 选项只有在完整版的 Vue 中可以使用，在运行时版本中是不能使用的
     render (h) {
@@ -21,7 +22,6 @@ export default function WithConsole (WrappedComponent) {
         })
       return h(WrappedComponent, {
         on: this.$listeners,
-        attrs: this.$attrs,
         props: this.$props
       }, slots)
     }

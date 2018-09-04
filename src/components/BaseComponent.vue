@@ -1,6 +1,6 @@
 <template>
   <div>
-    <span @click="handleClick">props: {{test}}</span>
+    <span @click="handleClick">props: {{count}}</span>
       <slot name="slot1"></slot> <!-- 具名插槽 -->
     <p>===========</p>
       <slot></slot><!-- 默认插槽 -->
@@ -12,12 +12,13 @@
   export default {
     name: 'BaseComponent',
     props: {
-      test: Number
+      count: Number
     },
+    inheritAttrs: false,
     mixins: [ consoleMixin ],
     methods: {
       handleClick () {
-        this.$emit('customize-click')
+        this.$emit('customizeClick')
       }
     }
   }
