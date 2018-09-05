@@ -16,18 +16,21 @@
 <script>
 import BaseComponent from './components/BaseComponent.vue'
 import hoc from './components/hoc.js'
+import InputExtends from './inputExtends/InputExtends'
 
 const EnhancedCom = hoc(BaseComponent)
 export default {
   name: 'app',
   components: {
     BaseComponent,
-    EnhancedCom
+    EnhancedCom,
+    InputExtends
   },
   data () {
     return {
       num1: 1,
-      num2: 2
+      num2: 2,
+      str: '123'
     }
   },
   methods: {

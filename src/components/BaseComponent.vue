@@ -20,6 +20,9 @@
       handleClick () {
         this.$emit('customizeClick')
       }
+    },
+    mounted () {
+      console.log(this.$vnode)
     }
   }
 

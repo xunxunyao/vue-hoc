@@ -1,0 +1,21 @@
+div.text-left
+  row(v-if="isEditing")
+    Col(span="5")
+      //the appropriate input should go here
+      block input
+    Col(span="8")
+      Button(type="primary"
+      :loading="loading"
+      :disabled="disabled"
+      @click="saveEdit").mg-l5.mg-r5
+        span(v-if="!loading") 确定
+        span(v-else) Loading
+      Button(@click="cancelEdit") 取消
+      span(v-if="validEmpty").text-error.mg-l5 {{validEmptyMsg}}
+  row(v-else)
+    Col(span="2" v-if="spin")
+      Spin(size="small").text-left.mg-r10 加载中...
+    Col(v-else span="12")
+      span.mg-r10 {{ curLabel }}
+        span(v-if="showEdit").icon-button.mg-l10
+          Icon(type="compose" @click.native="goEdit")

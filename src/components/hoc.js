@@ -2,10 +2,6 @@
 // 所以vue中的高阶组件可以这样定义，接收一个纯对象。返回一个新的纯对象
 export default function WithConsole (WrappedComponent) {
   return {
-    // template: '<wrapped v-on="$listeners" v-bind="$attrs"/>',
-    // components: {
-    //   wrapped: WrappedComponent
-    // },
     mounted () {
       console.log('I have already mounted --hoc')
     },
